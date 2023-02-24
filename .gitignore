@@ -1,0 +1,6 @@
+.env
+.venv
+
+tasks/__pycache__
+blogs/.env/
+blogs/blogs/__pycache__
