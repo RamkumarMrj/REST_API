@@ -4,3 +4,4 @@
 tasks/__pycache__
 blogs/.env/
 blogs/blogs/__pycache__
+blogs/posts/__pycache__
