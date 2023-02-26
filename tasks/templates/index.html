@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<!-- Start Header -->
+<div class="container">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{{url_for('static', filename='img/logo.png')}}" class="me-2" height="20"
+          alt="API" loading="lazy" />
+        <small>Home Page</small>
+      </a>
+      <div class="d-flex align-items-center">
+        <p class="font-monospace"><strong>URL : </strong><a class="text-reset me-3"
+            href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a></p>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- End Header -->
+
+<!-- Start Body -->
+<div class="container">
+
+  <!-- Home -->
+  <hr>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="http://127.0.0.1:5000/">Home</a></li>
+      <li class="breadcrumb-item"></li>
+    </ol>
+  </nav>
+  <hr>
+
+  <!-- GET Method -->
+  <h3>GET Method:</h3>
+  <p class="font-monospace">To view all tasks</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><strong>GET</strong></li>
+      <li class="breadcrumb-item">api</li>
+      <li class="breadcrumb-item"><a href="http://127.0.0.1:5000/api/tasks">tasks</a></li>
+    </ol>
+  </nav>
+  <pre>
+    Example:
+      Method GET 
+      http://127.0.0.1:5000/api/tasks
+    </pre>
+
+  <img class="img-fluid rounded" alt="GET" src="{{url_for('static', filename='img/get.png')}}" align="middle" height="400"
+    width="600" />
+  <hr>
+
+  <!-- POST Method -->
+  <h3>POST Method:</h3>
+  <p class="font-monospace">To add new task using ID</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><strong>POST</strong></li>
+      <li class="breadcrumb-item">api</li>
+      <li class="breadcrumb-item"><a href="http://127.0.0.1:5000/api/task">task</a></li>
+    </ol>
+  </nav>
+  <pre>
+    Example:
+      Method POST 
+      http://127.0.0.1:5000/api/task
+    </pre>
+  <p class="font-monospace">Body:</p>
+  <pre>
+    {
+      "task":
+      {
+        "id": 234324,
+        "name": "task",
+        "description": "This is task erwer"
+      }
+    }
+</pre>
+<img class="img-fluid rounded" alt="POST" src="{{url_for('static', filename='img/post.png')}}" align="middle" height="400"
+width="600" />
+  <hr>
+
+  <!-- PUT Method -->
+  <h3>PUT Method:</h3>
+  <p class="font-monospace">To Update the task using ID</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><strong>PUT</strong></li>
+      <li class="breadcrumb-item">api</li>
+      <li class="breadcrumb-item"><a href="http://127.0.0.1:5000/api/task">task</a></li>
+    </ol>
+  </nav>
+  <pre>
+    Example:
+      Method PUT 
+      http://127.0.0.1:5000/api/task
+    </pre>
+  <p class="font-monospace">Body:</p>
+  <pre>
+    {
+      "task":
+      {
+        "id": 5,
+        "name": "task",
+        "description": "New task added"
+      }
+    }
+</pre>
+<img class="img-fluid rounded" alt="Invalid ID" src="{{url_for('static', filename='img/invalid-id.png')}}" align="middle" height="400"
+    width="600" />
+<img class="img-fluid rounded" alt="PUT" src="{{url_for('static', filename='img/put.png')}}" align="middle" height="400"
+width="600" />
+  <hr>
+
+  <!-- DELETE Method -->
+  <h3>DELETE Method:</h3>
+  <p class="font-monospace">Delete task using task ID</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><strong>DELETE</strong></li>
+      <li class="breadcrumb-item">api</li>
+      <li class="breadcrumb-item"><a href="http://127.0.0.1:5000/api/task">tasks</a></li>
+      <li class="breadcrumb-item">&lt;int:id&gt;</li>
+    </ol>
+  </nav>
+  <pre>
+    Example:
+      Method DELETE 
+      http://127.0.0.1:5000/api/task/1
+</pre>
+<img class="img-fluid rounded" alt="Before Delete" src="{{url_for('static', filename='img/b4-delete.png')}}" align="middle" height="400"
+width="600" />
+<img class="img-fluid rounded" alt="Deleted" src="{{url_for('static', filename='img/aftr-delete.png')}}" align="middle" height="400"
+width="600" />
+  <hr>
+</div>
+<!-- End Body -->
+
+<!-- Start Footer -->
+<div class="container">
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="#">T&A Team</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+<!-- End footer -->
+{% endblock %}

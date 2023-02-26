@@ -1,4 +1,5 @@
 Install Django:
+```
 pip install Django
 (or)
 python -m pip install django
@@ -6,153 +7,193 @@ python -m pip install django
 pip install djangorestframework
 (or)
 python -m pip install djangorestframework
-
-=============================================
+```
 
 Create Virtual Env:
-python -m venv .env
+
+    python -m venv .env
 
 To Activate:
-.\.env\Scripts\activate
+    
+    .\.env\Scripts\activate
 
 To Deactivate:
-deactivate
+    
+    deactivate
 
 
 (Optional if you are using globaly):
-pip install django
 
-pip install djangorestframework
+    pip install django
+    pip install djangorestframework
 
 Create Project:
-django-admin startproject blog
+
+    django-admin startproject blog
 
 To Run Django:
-cd blogs
-python manage.py runserver
+
+    cd blogs
+    python manage.py runserver
 
 Open URL:
-http://127.0.0.1:8000/
-or
-localhost:8000
+
+`http://127.0.0.1:8000/ or localhost:8000`
 
 To synchronize these migration files:
-python manage.py migrate
+    
+    python manage.py migrate
 
 Creating a django project's app:
-python manage.py startapp posts
 
+    python manage.py startapp posts
+
+---
 MODEL:
-------
+
+---
 Create & write a class for Post
-# djangoapi/blog/posts/models.py
+
+`djangoapi/blog/posts/models.py`
 
 To MakeMigration:
-python manage.py makemigrations
+
+    python manage.py makemigrations
 
 Register posts in INSTALLED_APPS:
-# djangoapi/blog/blog/settings.py
+
+`djangoapi/blog/blog/settings.py`
+
 Run:
-python manage.py makemigrations
-python manage.py migrate
+
+    python manage.py makemigrations
+    python manage.py migrate
 
 Create API's:
-# posts/api
-posts/api/serializers.py
-posts/api/views.py
 
-# posts/migrations
-posts/migrations/
+`posts/api`
 
-# posts
-posts/admin.py
-posts/apps.py
-posts/models.py
-posts/tests.py
-posts/views.py
+`posts/api/serializers.py`
+
+`posts/api/views.py`
+
+`posts/migrations`
+
+
+posts
+
+`posts/admin.py`
+
+`posts/apps.py`
+
+`posts/models.py`
+
+`posts/tests.py`
+
+`posts/views.py`
 
 ModelSerializer Create PostSerializer class:
-# posts/api/serializers.py
+
+`posts/api/serializers.py`
 
 Create PostListView class in view.py
-# posts/api/views.py
+
+`posts/api/views.py`
 
 Give path in urls.py:
-# posts/urls.py
 
-Register rest_framework in INSTALLED_APPS:
-in settings.py rest_framework
+`posts/urls.py`
+
+Register rest_framework in INSTALLED_APPS in settings.py rest_framework
 
 To create Superuser / Admin user:
-python manage.py createsuperuser --email admin@example.com --username admin
-(pass: admin)
+
+    python manage.py createsuperuser --email admin@example.com --username admin
+    (pass: admin)
 
 Register model in admin.py:
-# posts/admin.py
-admin.site.register(Post)
+
+`posts/admin.py`
+
+`admin.site.register(Post)`
 
 admin login:
-http://127.0.0.1:8000/admin/
 
-
+`http://127.0.0.1:8000/admin/`
 
 =============================================
 Refered Blog: 
-https://dev.to/joshuamdeguzman/definitive-guide-developing-restful-apis-using-python-django-and-drf-2h7e
+[Dev.to Blog - Developing Restful APIs with Python, Django and Django Rest Framework](https://dev.to/joshuamdeguzman/definitive-guide-developing-restful-apis-using-python-django-and-drf-2h7e)
 
 Github user API:
-https://api.github.com/users/RamkumarMrj
 
+[RamkumarMrj Github API](https://api.github.com/users/RamkumarMrj)
 
+---
+# FLASK API
+---
 
-==============================================
-FLASK API
-----------------------------------------------
-Structure the Project:
-We placed all the code in the app.py file but, as the project grows it’s not easy to maintain. So, let’s move all the logic into another file called app_service.py. Here is the app_service.py file in which we defined the tasks json and four functions for the business logic. The __init__() function is called automatically every time you create an object from this class. This is like a constructor if you are coming from a java background. The self parameter is a reference to the current instance of the class and you can use it to access the variables of the instance as we used in the methods below.
+### Structure the Project:
+We placed all the code in the app.py file but, as the project grows it’s not easy to maintain. So, let’s move all the logic into another file called `app_service.py`. Here is the `app_service.py` file in which we defined the tasks json and four functions for the business logic. The `__init__()` function is called automatically every time you create an object from this class. This is like a constructor if you are coming from a java background. The self parameter is a reference to the current instance of the class and you can use it to access the variables of the instance as we used in the methods below.
 
-the app.py becomes leaner as we moved all the logic from this file to the service file above. First, we need to import AppService from the app_service.py file at line number 2 and initialize the class and create an object appService at line number 6. Once the object is created you can use it to access all the variables and methods as below.
-----------------------------------------------
+the app.py becomes leaner as we moved all the logic from this file to the service file above. First, we need to import AppService from the `app_service.py` file at line number 2 and initialize the class and create an object appService at line number 6. Once the object is created you can use it to access all the variables and methods as below.
+
+---
+
 Requirements:
-flask
-python-dotenv
+
+    flask
+    python-dotenv
 
 To run:
-flask --app app run
+    flask --app app run
 
-python3 -m venv myapp
-source myapp/bin/activate
+    python3 -m venv myapp
+    source myapp/bin/activate
 
-// install dependencies (Mac OS)
-python3 -m pip install -r requirements.txt
+install dependencies (Mac OS)
+    
+    python3 -m pip install -r requirements.txt
 
-// run the app
-flask run
+run the app
+    
+    flask run
 
 in powershell:
-$env:FLASK_APP="app.py" 
-flask run
+
+    $env:FLASK_APP="app.py" 
+    flask run
 
 Debug true:
-$env:FLASK_DEBUG = 1
-flask run
+
+    $env:FLASK_DEBUG = 1
+    flask run
 
 In CMD:
-set FLASK_APP=app.py
-set FLASK_DEBUG=1
-flask run
+    
+    set FLASK_APP=app.py
+    set FLASK_DEBUG=1
+    flask run
 
+---
 
-Pages:
-Home:
-URL: http://127.0.0.1:5000/
+# Home:
+**Home Page**
 
-GET /api/tasks - To view all tasks
-URL: http://127.0.0.1:5000/api/tasks
+URL: `http://127.0.0.1:5000/`
 
+**Method GET**
 
-POST /api/task - to update data / task
-URL: http://127.0.0.1:5000/api/task
+GET `/api/tasks` - To view all tasks
+
+URL: `http://127.0.0.1:5000/api/tasks`
+
+**Method POST**
+
+POST `/api/task` - to update data / task
+
+URL: `http://127.0.0.1:5000/api/task`
+```
 Method: POST
 Body:
 {
@@ -162,10 +203,13 @@ Body:
         "description": "This is task erwer"
     }
 }
+```
+**Mthod PUT**
 
+PUT `/api/task` - add new data / task
 
-PUT /api/task - add new data / task
-URL: http://127.0.0.1:5000/api/task
+URL: `http://127.0.0.1:5000/api/task`
+```
 Method: PUT
 Body:
 {
@@ -175,19 +219,51 @@ Body:
         "description": "This is task erwer"
     }
 }
+```
 
-DELETE /api/task/<id> - to delete particular task
-URL: http://127.0.0.1:5000/api/task/1
-Method: DELETE
+**Method: DELETE**
+
+DELETE `/api/task/<int:id>` - to delete particular task
+
+URL: `http://127.0.0.1:5000/api/task/1`
 
 
-=====================================================================
+---
 Refered Blog: 
 
-https://medium.com/bb-tutorials-and-thoughts/how-to-write-rest-api-with-python-and-flask-71ab42d253c5
+[medium blog](https://medium.com/bb-tutorials-and-thoughts/how-to-write-rest-api-with-python-and-flask-71ab42d253c5)
 
-https://flask.palletsprojects.com/en/2.2.x/quickstart/
+[flask Docs](https://flask.palletsprojects.com/en/2.2.x/quickstart/)
 
-https://github.com/bbachi/python-flask-restapi
+[Github reference](https://github.com/bbachi/python-flask-restapi)
 
-=====================================================================
+---
+# Angular
+
+```
+ng new todo
+cd todo/src/app
+
+mkdir components
+cd components
+
+ng g c header
+ng g c footer
+ng g c body
+```
+
+Reference docs
+
+[Bootstrap Docs](https://getbootstrap.com/docs/5.2/)
+
+[MDBootstrap](https://mdbootstrap.com/docs/standard/)
+
+for icons:
+
+    npm i @fortawesome/angular-fontawesome
+    ng add @fortawesome/angular-fontawesome@0.12.1
+
+`? Choose Font Awesome version you would like to use: Font Awesome 6` 
+
+`? Choose Font Awesome icon packages you would like to use: Free Solid Icons`
+

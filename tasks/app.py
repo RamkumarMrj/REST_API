@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for
 from app_service import AppService
 import json
 
@@ -8,7 +8,9 @@ appService = AppService();
 
 @app.route('/')
 def home():
-    return "<h1>App Works!!!</h1>"
+    title = "Home Page"
+    # return "<h1>App Works!!!</h1>"
+    return render_template('index.html', title=title)
 
 
 @app.route('/api/tasks')
