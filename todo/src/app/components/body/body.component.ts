@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
@@ -6,22 +8,50 @@ import { TasksService } from 'src/app/services/tasks.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent implements OnInit {
+export class BodyComponent {
+  
+  constructor(private taskService: TasksService, private router: Router) { }
 
-  public taskList: any = [];
-  public currentTask: number = 0;
+  public data: any
+  public sel: any
 
-  constructor(private taskService: TasksService) { }
-
-  ngOnInit(): void {
-    this.getAllTasks();
+  ngOnInit() {
+    this.taskService.getAllData()
+    .subscribe(data => { 
+      this.data = data
+      console.log(data)
+    })
+  }
+  submitData(value: any) {
+    let body = {
+      id: value.id,
+      name: value.name,
+      description: value.description
+    }
+    this.taskService.postData(body)
+    .subscribe(response => {
+      console.log(response)
+    })
   }
 
-  getAllTasks() {
-    this.taskService.taskServiceApi()
-      .subscribe((res: { tasks: any; }) => {
-        this.taskList = res.tasks;
-      })
+  create() {
+    this.router.navigate(['create'])
   }
+
+  delete() {
+    console.log(this.sel)
+  }
+
+  // dalete(value: any) {
+  //   let body = {
+  //     id: value.id,
+  //     name: value.name,
+  //     description: value.description
+  //   }
+  //   this.taskService.postData(this.sel)
+  //   .subscribe(response => {
+  //     console.log(response)
+  //   })
+  // }
 
 }

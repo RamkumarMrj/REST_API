@@ -8,15 +8,23 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BodyComponent } from './components/body/body.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateComponent } from './components/create/create.component';
+import { UpdateComponent } from './components/update/update.component';
+import { OperationsComponent } from './components/operations/operations.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    BodyComponent
+    BodyComponent,
+    CreateComponent,
+    UpdateComponent,
+    OperationsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,

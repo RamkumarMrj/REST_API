@@ -8,16 +8,17 @@
       <th scope="col">Description</th>
     </tr>
   </thead>
+
   <tbody>
-    <tr>
+    <tr *ngFor="let d of data">
       <th scope="row">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+        <div class="form-radio">
+          <input class="form-check-input" [(ngModel)]="sel" [value]="d.id" type="radio" name="sel" />
         </div>
       </th>
-      <td>1</td>
-      <td>Task 1</td>
-      <td>This is task 1</td>
+      <td>{{d.id}}</td>
+      <td>{{d.name}}</td>
+      <td>{{d.description}}</td>
     </tr>
   </tbody>
 </table>
@@ -26,13 +27,14 @@
 <div class="container text-center">
   <div class="row">
     <div class="col">
-      <button type="button" class="btn btn-outline-success" data-mdb-ripple-color="dark">Create</button>
+      <button type="button" (click)="create()" class="btn btn-outline-success"
+        data-mdb-ripple-color="dark">Create</button>
     </div>
     <div class="col">
       <button type="button" class="btn btn-outline-warning" data-mdb-ripple-color="dark">Update</button>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="dark">Delete</button>
+      <button type="button"  (click)="delete()" class="btn btn-outline-danger" data-mdb-ripple-color="dark">Delete</button>
     </div>
   </div>
 </div>

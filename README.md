@@ -267,3 +267,30 @@ for icons:
 
 `? Choose Font Awesome icon packages you would like to use: Free Solid Icons`
 
+
+
+For testing:
+
+Temporary Front-End solution so you can test if your API integration is working:
+Click on window -> type run and hit enter -> in the command window copy:
+
+    chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
+Permanent solution:
+In the backend code, the developer needs to add an annotation @Crossorigin right above the CRUD api call method.
+
+
+Install flask-cors
+
+pip install -U flask-cors
+then after app initialization, initialize flask-cors with default arguments:
+
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route("/")
+def helloWorld():
+   return "Hello, cross-origin-world!"

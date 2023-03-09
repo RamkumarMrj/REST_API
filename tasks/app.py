@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template, url_for
+from flask_cors import CORS
 from app_service import AppService
 import json
 
 app = Flask(__name__)
 appService = AppService();
+CORS(app)
 
 
 @app.route('/')
